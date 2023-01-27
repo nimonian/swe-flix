@@ -19,6 +19,10 @@ async function seed () {
     description: 'All about JAVA!'
   })
 
+  const video2 = await Video.create({
+    description: 'All about C#!'
+  })
+
   await user.addVideo(video) // <-- magic method added by sequelize
 
 }

@@ -10,7 +10,8 @@ Video.init({
     primaryKey: true
   },
   description: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    allowNull: false
   }
 }, { sequelize: db })
 

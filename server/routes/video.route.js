@@ -28,4 +28,19 @@ videoRouter.post('/', async (req, res) => {
   }
 })
 
+videoRouter.put('/like/:id/:bool', async (req, res) => {
+  try {
+    const video = await Video.findByPk(req.params.id)
+    if (video) {
+      await video.update({ liked: Boolean(Number(req.params.bool)) })
+      return res.status(201).send(video)
+    } else {
+      return res.sendStatus(404)
+    }
+  } catch (err) {
+    console.error(err)
+    return res.sendStatus(500)
+  }
+})
+
 module.exports = videoRouter
